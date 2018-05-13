@@ -17,40 +17,40 @@ print(10-8*2/3-2)
 
 
 #先定义一下各种数据类型的变量；
-#str1='automation';str2='python';str3='nice';str4='10'
-#int1=10;int2=8
-#float1=17.0;float2=3.0
-#list1=['1','2','3','4'];list2=['one','two']
-#tuple1=(1,2) ;tuple2=(3,4)
-#dict1={'hunan':'changs','hubei':'wuhan'};dict2={'sichuan':'chengdu'}  #字典没有加减乘除
+str1='automation';str2='python';str3='nice';str4='10'
+int1=10;int2=8
+float1=17.0;float2=3.0
+list1=['1','2','3','4'];list2=['one','two']
+tuple1=(1,2) ;tuple2=(3,4)
+dict1={'hunan':'changs','hubei':'wuhan'};dict2={'sichuan':'chengdu'}  #字典没有加减乘除
 
 
 #加减法，相同的数据类型(int,str,float;list);直接用表达式'+'，
-#c=str1+str3+str2  #字符串相加
-#c=list1+list2     #list相加
-#c=int1+str4       #字符串和整数相加先用str() 或者int()转换
-#c=int1+float1     #整数和浮点可以直接相加，
-#print (type(c),c)
+c=str1+str3+str2  #字符串相加
+c=list1+list2     #list相加
+c=int1+str4       #字符串和整数相加先用str() 或者int()转换
+c=int1+float1     #整数和浮点可以直接相加，
+print (type(c),c)
 
 
 
 #乘法*；**运算符来计算权力
 
-# temp=str1*3     #字符串*整数
-# print(type(temp),temp)
-#print(2**7)     #求2的7次方
+temp=str1*3     #字符串*整数
+print(type(temp),temp)
+print(2**7)     #求2的7次方
 
 
 #除法
 # /总是返回一个浮点数;
-#temp=10/2         #结果为5.0而不是5
-#print(type(temp),temp)
+temp=10/2         #结果为5.0而不是5
+print(type(temp),temp)
 # 如果想返回整数结果（丢弃任何分数结果），可以使用// ;
-#temp=13//2         #结果等于6
-#print(type(temp),temp)
+temp=13//2         #结果等于6
+print(type(temp),temp)
 # 计算余数使用%：
-#temp=13%2         #余数结果为1；常用来判断一个数是否为奇数或偶数
-#print(temp)
+temp=13%2         #余数结果为1；常用来判断一个数是否为奇数或偶数
+print(temp)
 
 
 
@@ -63,29 +63,29 @@ print(10-8*2/3-2)
 2.省略的第一个索引默认为零，省略的第二个索引默认为正在切片的字符串的大小。
 '''
 #例如：
-# str1='automation'
-# print(str1[-1])           #打印 n
-# print(len(str1))          #长度为10
-# print(str1[4:6])          #ma
-# print(str1[4:10])         #mation
-# print (str1[:])           #打印整个字符串；开始和结束索引都省略
-# print(str1[:6]+str1[6:])
-# print(str1[-6:])
+str1='automation'
+print(str1[-1])           #打印 n
+print(len(str1))          #长度为10
+print(str1[4:6])          #ma
+print(str1[4:10])         #mation
+print (str1[:])           #打印整个字符串；开始和结束索引都省略
+print(str1[:6]+str1[6:])
+print(str1[-6:])
 
 #list切片，可以自己去练习一下
-#print(list1[:])
-#print(list1[1:3])
+print(list1[:])
+print(list1[1:3])
 
 
 #将首字母大写；将某个字符串大写的方法upper()
-#str='hello'
-# str=str1[:1].upper()+str1[1:]
-# print(str)
+str='hello'
+str=str1[:1].upper()+str1[1:]
+print(str)
 
 '''将 字符串最 中间的字母大写'''
-# res='world'
-# s=len(res)//2
-# print(res[:s]+res[s:s+1].upper()+res[s+1:])
+res='world'
+s=len(res)//2
+print(res[:s]+res[s:s+1].upper()+res[s+1:])
 
 '''
 为了让计算机能计算成千上万次的重复运算，我们就需要循环语句。
@@ -103,42 +103,42 @@ while:只要条件(:)保持为真，循环就会一直执行。
 判断一个东西是否为真：用布尔类型
 '''
 #例如：
-#print(bool(10))   #结果为真；打印True
-#print(bool(0))    #结果为假；打印True
-#print(bool(3>0))  #结果为真；打印True
+print(bool(10))   #结果为真；打印True
+print(bool(0))    #结果为假；打印True
+print(bool(3>0))  #结果为真；打印True
 
 
 
 #用while计算[0,100]的和：1+2+3+4+。。+100
-# n=0;sum=0
-# while n<101:
-#      sum=sum+n
-#      n=n+1
-# print (sum)
+n=0;sum=0
+while n<101:
+     sum=sum+n
+     n=n+1
+print (sum)
 
 '''练习：当n定义为99时，求【1，100】的和"'''
-# n=99;sum=0
-# while n>0:
-# 	  sum=sum+n
-# 	  n=n-1
-# print (sum)
+n=99;sum=0
+while n>0:
+	  sum=sum+n
+	  n=n-1
+print (sum)
 
 
 
 '''练习：求x的n次方 2³'''
-# print(pow(2,7))
-# sum=1;n=2;x=3
-# while x>0:
-# 	sum=sum*n
-# 	x=x-1
-# print(sum)
+print(pow(2,7))
+sum=1;n=2;x=3
+while x>0:
+	sum=sum*n
+	x=x-1
+print(sum)
 
 '''n的阶层  例如：5的阶层=5*4*3*2*1'''
-# sum=1;n=5
-# while n>0:
-# 	sum=sum*n
-# 	n=n-1
-# print(sum)
+sum=1;n=5
+while n>0:
+	sum=sum*n
+	n=n-1
+print(sum)
 
 
 '''第二种循环：for
@@ -148,12 +148,12 @@ for x  in 循环
 例如：for x in range list1():
 '''
 #例如： end='' 表示输入结果不换行
-# for i in list1:
-# 	print (i,end='')
-# for i in dict1:
-# 	print (i,end='')
-# for i in str1:
-# 	print (i)
+for i in list1:
+	print (i,end='')
+for i in dict1:
+	print (i,end='')
+for i in str1:
+	print (i)
 
 
 '''
@@ -165,8 +165,8 @@ for in range(n1,n2)
 
 
 #例如：
-# for i in range(3,10):
-# 	print(i)
+for i in range(3,10):
+	print(i)
 
 
 '''练习：for 循环里面嵌套循环
@@ -181,11 +181,11 @@ a
 p
 
 '''
-# list=['java','python','php']
-#
-# for m in list:
-# 	for n in m:
-# 		print(n)
+list=['java','python','php']
+
+for m in list:
+	for n in m:
+		print(n)
 
 
 '''if：结合自动化，为什么要用if，因为一个测试用例操作过程中，有时候需要判断某个元素的条件，状态，再去点击某个元素
@@ -199,11 +199,11 @@ else:
 '''
 
 #简单的if实例：
-# x=85
-# if x>60:
-# 	print('好')
-# else:
-# 	print('加油')
+x=85
+if x>60:
+	print('好')
+else:
+	print('加油')
 
 
 '''
@@ -216,20 +216,20 @@ else:
       60以下  加油
 
 '''
-#grade=80
-# if grade>=95:
-# 	print('1')
-# else:
-# 	if grade>=90:
-# 		print('2')
-# 	else:
-# 		if grade>=80:
-# 			print('3')
-# 		else:
-# 			if grade>=60:
-# 				print('4')
-# 			else:
-# 				print('5')
+grade=80
+if grade>=95:
+	print('1')
+else:
+	if grade>=90:
+		print('2')
+	else:
+		if grade>=80:
+			print('3')
+		else:
+			if grade>=60:
+				print('4')
+			else:
+				print('5')
 
 
 
@@ -247,18 +247,18 @@ else:
 
 '''用elif写出上面的例子'''
 #random是取一个随机数；需要先导入python内置的模块import random
-# grade=random.randint(1,100)
-# print(grade)
-# if   grade>95:
-# 	print("了不起")
-# elif grade>90:
-# 	print ('优秀')
-# elif grade>80:
-# 	print('良好')
-# elif grade>60:
-# 	print('刚刚好')
-# else:
-#     print("未及格,你还需努力")
+grade=random.randint(1,100)
+print(grade)
+if   grade>95:
+	print("了不起")
+elif grade>90:
+	print ('优秀')
+elif grade>80:
+	print('良好')
+elif grade>60:
+	print('刚刚好')
+else:
+    print("未及格,你还需努力")
 
 
 
@@ -276,14 +276,14 @@ else:
 参数：可选
 return：可选，默认是none
 '''
-#print(abs(10)) #abs是求绝对值的方法；我们自定义一个函数名称叫 abs_my
+print(abs(10)) #abs是求绝对值的方法；我们自定义一个函数名称叫 abs_my
 
-# def abs_my(x):
-# 	if x>0:
-# 		return  x     #函数的返回值
-# 	else:
-# 		return  -x
-# print(abs_my(-10))   #函数需要调用：函数名+参数
+def abs_my(x):
+	if x>0:
+		return  x     #函数的返回值
+	else:
+		return  -x
+print(abs_my(-10))   #函数需要调用：函数名+参数
 
 
 
