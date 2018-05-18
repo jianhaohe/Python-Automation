@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <title>练习selenium定位元素页面</title>
+<style type="text/css">
+    table{font-size:26px;text-align:center;width:80%;border-collapse:collapse;margin:auto}
+    table th{background: #aff}
+    .display{color:red}
+    .widgetStyle{text-align:left;padding-left:100px}
+</style>
+     <script language= "javascript" type="text/javascript">
+            function clickbutton(flag)
+            {
+                if (flag == 1) alert("测试alert对话框");
+                if (flag == 2)
+        {
+            var name=prompt("测试prompt对话框","");
+                  if (name!=null && name!="")
+                    {
+                        //document.write(name);
+                    alert(name);
+                    }
+        }
+                if (flag == 3)
+        {
+                var r=confirm('测试confirm对话框', '测试confirm对话框?',"测试结果：")
+                  if (r==true)
+                    {
+                        //document.write("You pressed OK!")
+                    alert("You pressed OK!");
+                    }
+                  else
+                    {
+                        //document.write("You pressed Cancel!")
+
+                    alert("You pressed Cancel!");
+                    }
+        }
+        if (flag == 4)
+
+            alert(document.getElementById("edit").value);
+
+
+                }
+
+
+
+
+        function getOptions()
+          {
+              var x=document.getElementById("Selector");
+              var y=x.options[x.selectedIndex].text
+              // document.write(y);
+            alert(y);
+          }
+        </script>
+    </head>
+
+    <body>
+    <p>welcome {{username}}</p>
+    <h3>欢迎来到何剑豪的自动化测试执行页面</h3>
+        <center>
+    </br>
+    <div>
+    <p>
+
+    <div class="text" style="font-size:36px;text-align:center"><b>seleniun处理基本元素</b></div>
+    </p>
+        <hr>
+        </div>
+    <p>
+        <table cellpadding="10" cellspacing="0" border="2">
+        <thead>
+            <tr>
+                <th width=20% class="widgetleft">测试内容</th>
+                <th width=80% class="widgetStyle">页面基本元素</th>
+            </tr>
+        </thead>
+
+
+            <tr>
+                <td>文件上传</td>
+                <td><input type="file" name="attach[]"  /></td>
+            </tr>
+
+            <tr>
+                <td>alter对话框</td>
+                <td>
+                    <input type="button" name="alterbutton" value="测试alter对话框"  onclick = "clickbutton(1);" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>prompt对话框</td>
+                <td>
+                    <input type="button" name="promptbutton" value="测试prompt对话框"  onclick = "clickbutton(2);" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>confirm对话框</td>
+                <td>
+                    <input type="button" name="confirmbutton" value="测试confirm对话框"  onclick = "clickbutton(3);" />
+                </td>
+            </tr>
+            <tr>
+                <td>select菜单</td>
+                <td>
+                <select id="Selector">
+                    <option value="apple" index="1" >苹果</option>
+                    <option value="peach"  index="2" >桃子</option>
+                    <option value="banana" index="3" >香蕉</option>
+                    <option value="orange"  index="4">桔子</option>
+                    <option value="grape"  index="5">葡萄</option>
+                    <option value="mango"  index="6">芒果</option>
+        </select>
+            <br /><br />
+            <input type="button" id="showSelectResult" name="showSelectResult" onclick="getOptions()" value="选择结果">
+                </td>
+            </tr>
+
+          <tr>
+                <td>文本框</td>
+                <td>
+                    <input type="text" name="edit" id="edit" value="" />
+            <input type="button" name="submit" value="submit"  onclick = "clickbutton(4);"/>
+                </td>
+            </tr>
+
+      <tr>
+        <td>RadioBox</td>
+        <td class="widgetStyle">
+        <label>
+        Which is your favourite company?
+        </label>
+        <div id='radio'  >
+        <input type='radio' name="company" class='Baidu'/>
+            <span class="pip"></span>
+            <label>百度</label>
+        </br>
+        <input type='radio' name="company" class='AliBaBa'/>
+            <span class="pip"></span>
+            <label>阿里巴巴</label></br>
+        <input type='radio' name="company" class='Tencent' checked/>
+            <span class="pip"></span>
+            <label>腾讯</label></br>
+        <input type='radio' name="company" class='Mi' disabled="true"/>
+            <span class="pip"></span>
+            <label>小米</label>
+         </td>
+         </tr>
+
+    <tr>
+         <td>CheckBox</td>
+        <td class="widgetStyle">
+        <label>
+        In which way do you know about Selenium
+        <label>
+        <div id='checkbox'>
+        <input type="checkbox" name="checkbox1" id="web"/><label>网络</label></br>
+        <input type="checkbox" name="checkbox2" id="training"/><label>培训</label></br>
+        <input type="checkbox" name="checkbox3" id="friend"/><label>朋友介绍</label></br>
+        <input type="checkbox" name="checkbox4" id="other" /><label>其他方式</label>
+        </div>
+        </td>
+    </tr>
+    <tr>
+    <td>a 标签</td>
+    <td>
+    <div class="classa">
+             <a href="https://github.com/jianhaohe/Python-Automation" target="_blank">回家记得看课堂笔记</a>
+
+
+    </div>
+    </td>
+    </tr>
+            </table>
+
+
+       </p>
+
+
+        </center>
+    </body>
+</html>
