@@ -1,232 +1,232 @@
 #coding=utf-8
-# '''homework:定义一个函数：
-#    函数的功能：将list中元素长度为奇数的元素，最中间的字母大写
-# def middile_upper(list):
-#     函数体
-#
-# 例如：list1=['hello','python','testing','where']
-# 调用该函数时：print middle_upper(list1)  会打印出 list1=['heLlo','python','tesTing','whEre']
-# 用到的知识点：for len()  // %  切片 函数的参数，返回值
-# 提示：替换list1中某个元素写法：list1[下标]='替换后的值'；
-# '''
-#
-# ''''''
-# list1=['hello','python','testing','where']
-# '''第一种方法，
-#    1.for循环list中每个元素，
-#    2.将把中间字母大写的元素
-#    3.定义一个空的list，再用append方法，将每个元素添加到一个新的list去'''
-#
-# newlist = []
-# def middle_upper(list):
-# 	for temp in list:
-# 		'''判断元素长度是否是奇数，将中间字母大写后再添加到新list'''
-# 		if len(temp)%2==1:
-# 			midstr=len(temp)//2
-# 			newstr=temp[:midstr]+temp[midstr:midstr+1].upper()+temp[midstr+1:]
-# 			newlist.append(newstr)
-# 		else:
-# 			newlist.append(temp)   #将不需要大写的元素，直接添加到新list
-# 	return newlist
-# print(middle_upper(list1))
-#
-#
-#
-# '''第二种方法
-# 	1.先循环这个list的长度，用for in range
-# 	2.再讲需要大写的元素直接替换：用list[下标]='中间字母大写后的值'
-# '''
-# def middle_upper(list):
-# 	'''list中的每个元素用list[下标]来表示'''
-# 	for i in range(len(list)):
-# 		mid=len(list[i])//2
-# 		if len(list[i])%2==1:
-# 			newstr=list[i][:mid]+list[i][mid:mid+1].upper()+list[i][mid+1:]
-# 			list[i]=newstr
-# 	return list
-# print(middle_upper(list1))
-#
-#
-#
-# '''面象对象编程
-# '''
-#
-# '''
-# 背景：为什么要学类
-# 	 1.当我们写了很多用例，我们需要组织用例以及测试执行获取测试报告，需要用到标准库unittest（其实就是一个库里面的类）；
-#      2.自动化常用的 driver.find_elements_by_xpath(''),其实也是去调用selenium里面一个类的方法
-# '''
-#
-#
-#
-# '''
-# 面象对象俩个重要的概念：类（class）和实例（instance）
-# 类是抽象的：用来描述具有相同属性和相同方法的对象的集合;
-# 		  比如说人类；student类;员工类：
-# 		            相同的属性：比如都有眼睛，鼻子。
-# 		            相同的方法（功能）：吃饭睡觉，说话
-# 实例：是根据类创建出来的具体的对象；
-# 	   比如某一个人小明，某一个学生，高三班的张三；
-# 		            每个对象有相同的属性和方法，但是属性的值都不一样。
-# 实例化：创建一个类的实例，类的具体的对象;
-#
-#
-# '''
-#
-# #创建一个员工类：class +类的名称，首字母一般大写
-# class Employee:
-# 	pass  #类体
-# Employee
-#
-#
-# #创建一个类的实例对象:实例化类其他编程语言中一般用关键字 new，在python中类似函数调用方式
-# '''创建员工类的第一个实例化对象'''
-# Emp1=Employee()
-# '''创建员工类的第二个实例化对象'''
-# Emp2=Employee()
-# print(Emp1,Emp2)  #打印出来的结果说明，emp1，emp2是Employee类里面的一个对象
-#
-#
-# #可以自由的给实例绑定一个属性
-# Emp1.name='张三'
-# Emp1.age='18'
-#
-# Emp2.name='李四'
-# Emp2.age='20'
-# print(Emp1.name,Emp1.age,Emp2.name,Emp2.age)  #打印出刚刚新增的属性的值
-#
-# '''
-# 背景：由于类（具有相同属性的对象的集合）可以起到模板的作用；我们可以把实例对象具有相同的或必要的属性绑定在类中（例如：name，age，salary）
-# 	 通过特殊的__init__方法，创建实例的时候，就把属性自动绑定上去了。
-# 						 列如：创建了一个员工C的实例对象，它就用有name，age等属性了
-#
-# 概念：
-# 类方法：类中定义的函数。（第一个参数是self外，其他和普通函数一样）
-# self:代表的就是实例本身（比如Emp1）.
-# __init__方法：
-# 	1.类中的特殊的方法，第一个参数永远是self，所以在init方法内部，可以将各种属性绑定到self上（因为self所指向的就是所创建的实例本身）
-# 	2.******每当你创建了一个类的实例，就会自动去调用这个方法;
-# 	4.在init方法内部，通过self将每个对象相同的属性绑定上去，例如：self.name=name
-#
-# '''
-#
-# #如何理解，self代表实例对象
-# class Test1:
-# 	def test(self):
-# 		print ('self代表的是%s'%self)
-#
-# a=Test1()
-# print('实例对象a：%s'%a)   #打印实例对象a
-# a.test()                 #调用Test1里面的test方法，打印self。
-# #上面2行打印出来的结果完全一样，说明了self代表的就是这个实例对象本身
-#
-#
-# #理解__init__ :比如绑定属性name，age
-#
-# class Employee2:
-# 	def __init__(self,name,age,years):
-# 		self.name=name
-# 		self.age=age
-# 		self.years=years
-# 	def display_info(self):
-# 		'''展示员工基本信息方法'''
-# 		print('名字为%s;年龄为%s,工作年限%d'%(self.name,self.age,self.years))
-#
-#
-# #创建2个实例对象，员工3和员工4
-# Emp3=Employee2('wangwu','28',3) # 注意：有了init方法后，创建实例的时候需要传入和init方法同样的参数，self参数不用传，python解释器会把实例变量传进去
-# Emp4=Employee2('xiaoliu','30',5)
-#
-#
-#
-# #上面讲对象的属性绑定之后，类中定义的方法可以共用这几个变量（name，age），下面调用Employee2里面的展示员工基本信息的方法
-# Emp3.display_info()   #打印员工3的名字，年龄，工作年限
-# Emp4.display_info()   #打印员工4的名字，年龄，工作年限
-#
-#
-#
-#
-#
-# '''实例：写一个员工类，统计员工的总人数，展示员工的基本信息，根据员工的工作年限评判员工等级
-# 1.定义一个类变量,统计员工的人数
-# 	类变量:在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。
-# 2.增加类的方法；评判员工等级
-# '''
-#
-# class Employee3:
-# 	'''第一步：新建一个员工类'''
-# 	empCount=0   #定义一个类变量，初始值为0
-# 	def __init__(self,name,age,years):
-# 		''''''
-# 		self.name=name
-# 		self.age=age
-# 		self.years=years
-# 		Employee3.empCount+=1   #上面所讲，因为每次实例化一个对象，会自动调用init方法，所以，员工数量+1的语句需要写在init方法里面
-#
-# 	def display_info(self):
-# 		'''展示员工基本信息方法'''
-# 		print('员工%s;年龄为%s,工作年限%d'%(self.name,self.age,self.years))
-#
-# 	def displaycount(self):
-# 		'''统计员工人数'''
-# 		print("员工总数 %d" % Employee3.empCount)
-#
-# 	def EmpRank(self):
-# 		'''评定员工等级'''
-# 		if self.years>10:
-# 			print ('P1')
-# 		elif self.years>5:
-# 			print  ('p2')
-# 		elif self.years>2:
-# 			print  ('p3')
-# 		else:
-# 			print  ('p4')
-#
-# '''第二步，创建三个实例化对象'''
-# A=Employee3('zhangsan','26',3)
-# B=Employee3('lisi','26',2)
-# C=Employee3('lisi','26',8)
-#
-#
-# '''
-# 调用类的属性和方法
-# '''
-# A.display_info(),A.EmpRank()    #调用类中的俩个方法，会打印员工的基本信息，和等级
-# B.display_info(),B.EmpRank()
-# C.display_info(),C.EmpRank()
-# A.displaycount()                #打印统计员工总数的值，这里是3
-#
-#
-#
-#
-# '''
-#  继承 ：代码的重用
-#  class+类名+（继承的类名）：
-# 比如 class  Test(object):
-#       默认为object类，这是所有类最终都会继承的类，所以我们上面新增的类，类名称后面没有写括号（）
-# '''
-#
-# '''写一个父类，再写一个子类，去继承父类中间的方法'''
-#
-# class Parent():    #定义一个父类
-# 	parentattr=100
-# 	def __init__(self):
-# 		print('这是父类的init方法')
-# 	def parentmethon(self):
-# 		print('这是父类的普通方法')
-#
-#
-# class Child(Parent):   #定义一个子类
-# 	def __init__(self):
-# 		print('这是子类的init方法')
-# 	def childmethon(self):
-# 		print('这是子类的方法')
-#
-# #实例化(子类)对象
-# chi=Child()
-#
-# #子类去调用父类的方法
-# chi.parentmethon()
+'''homework:定义一个函数：
+   函数的功能：将list中元素长度为奇数的元素，最中间的字母大写
+def middile_upper(list):
+    函数体
+
+例如：list1=['hello','python','testing','where']
+调用该函数时：print middle_upper(list1)  会打印出 list1=['heLlo','python','tesTing','whEre']
+用到的知识点：for len()  // %  切片 函数的参数，返回值
+提示：替换list1中某个元素写法：list1[下标]='替换后的值'；
+'''
+
+''''''
+list1=['hello','python','testing','where']
+'''第一种方法，
+   1.for循环list中每个元素，
+   2.将把中间字母大写的元素
+   3.定义一个空的list，再用append方法，将每个元素添加到一个新的list去'''
+
+newlist = []
+def middle_upper(list):
+	for temp in list:
+		'''判断元素长度是否是奇数，将中间字母大写后再添加到新list'''
+		if len(temp)%2==1:
+			midstr=len(temp)//2
+			newstr=temp[:midstr]+temp[midstr:midstr+1].upper()+temp[midstr+1:]
+			newlist.append(newstr)
+		else:
+			newlist.append(temp)   #将不需要大写的元素，直接添加到新list
+	return newlist
+print(middle_upper(list1))
+
+
+
+'''第二种方法
+	1.先循环这个list的长度，用for in range
+	2.再讲需要大写的元素直接替换：用list[下标]='中间字母大写后的值'
+'''
+def middle_upper(list):
+	'''list中的每个元素用list[下标]来表示'''
+	for i in range(len(list)):
+		mid=len(list[i])//2
+		if len(list[i])%2==1:
+			newstr=list[i][:mid]+list[i][mid:mid+1].upper()+list[i][mid+1:]
+			list[i]=newstr
+	return list
+print(middle_upper(list1))
+
+
+
+'''面象对象编程
+'''
+
+'''
+背景：为什么要学类
+	 1.当我们写了很多用例，我们需要组织用例以及测试执行获取测试报告，需要用到标准库unittest（其实就是一个库里面的类）；
+     2.自动化常用的 driver.find_elements_by_xpath(''),其实也是去调用selenium里面一个类的方法
+'''
+
+
+
+'''
+面象对象俩个重要的概念：类（class）和实例（instance）
+类是抽象的：用来描述具有相同属性和相同方法的对象的集合;
+		  比如说人类；student类;员工类：
+		            相同的属性：比如都有眼睛，鼻子。
+		            相同的方法（功能）：吃饭睡觉，说话
+实例：是根据类创建出来的具体的对象；
+	   比如某一个人小明，某一个学生，高三班的张三；
+		            每个对象有相同的属性和方法，但是属性的值都不一样。
+实例化：创建一个类的实例，类的具体的对象;
+
+
+'''
+
+#创建一个员工类：class +类的名称，首字母一般大写
+class Employee:
+	pass  #类体
+Employee
+
+
+#创建一个类的实例对象:实例化类其他编程语言中一般用关键字 new，在python中类似函数调用方式
+'''创建员工类的第一个实例化对象'''
+Emp1=Employee()
+'''创建员工类的第二个实例化对象'''
+Emp2=Employee()
+print(Emp1,Emp2)  #打印出来的结果说明，emp1，emp2是Employee类里面的一个对象
+
+
+#可以自由的给实例绑定一个属性
+Emp1.name='张三'
+Emp1.age='18'
+
+Emp2.name='李四'
+Emp2.age='20'
+print(Emp1.name,Emp1.age,Emp2.name,Emp2.age)  #打印出刚刚新增的属性的值
+
+'''
+背景：由于类（具有相同属性的对象的集合）可以起到模板的作用；我们可以把实例对象具有相同的或必要的属性绑定在类中（例如：name，age，salary）
+	 通过特殊的__init__方法，创建实例的时候，就把属性自动绑定上去了。
+						 列如：创建了一个员工C的实例对象，它就用有name，age等属性了
+
+概念：
+类方法：类中定义的函数。（第一个参数是self外，其他和普通函数一样）
+self:代表的就是实例本身（比如Emp1）.
+__init__方法：
+	1.类中的特殊的方法，第一个参数永远是self，所以在init方法内部，可以将各种属性绑定到self上（因为self所指向的就是所创建的实例本身）
+	2.******每当你创建了一个类的实例，就会自动去调用这个方法;
+	4.在init方法内部，通过self将每个对象相同的属性绑定上去，例如：self.name=name
+
+'''
+
+#如何理解，self代表实例对象
+class Test1:
+	def test(self):
+		print ('self代表的是%s'%self)
+
+a=Test1()
+print('实例对象a：%s'%a)   #打印实例对象a
+a.test()                 #调用Test1里面的test方法，打印self。
+#上面2行打印出来的结果完全一样，说明了self代表的就是这个实例对象本身
+
+
+#理解__init__ :比如绑定属性name，age
+
+class Employee2:
+	def __init__(self,name,age,years):
+		self.name=name
+		self.age=age
+		self.years=years
+	def display_info(self):
+		'''展示员工基本信息方法'''
+		print('名字为%s;年龄为%s,工作年限%d'%(self.name,self.age,self.years))
+
+
+#创建2个实例对象，员工3和员工4
+Emp3=Employee2('wangwu','28',3) # 注意：有了init方法后，创建实例的时候需要传入和init方法同样的参数，self参数不用传，python解释器会把实例变量传进去
+Emp4=Employee2('xiaoliu','30',5)
+
+
+
+#上面讲对象的属性绑定之后，类中定义的方法可以共用这几个变量（name，age），下面调用Employee2里面的展示员工基本信息的方法
+Emp3.display_info()   #打印员工3的名字，年龄，工作年限
+Emp4.display_info()   #打印员工4的名字，年龄，工作年限
+
+
+
+
+
+'''实例：写一个员工类，统计员工的总人数，展示员工的基本信息，根据员工的工作年限评判员工等级
+1.定义一个类变量,统计员工的人数
+	类变量:在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。
+2.增加类的方法；评判员工等级
+'''
+
+class Employee3:
+	'''第一步：新建一个员工类'''
+	empCount=0   #定义一个类变量，初始值为0
+	def __init__(self,name,age,years):
+		''''''
+		self.name=name
+		self.age=age
+		self.years=years
+		Employee3.empCount+=1   #上面所讲，因为每次实例化一个对象，会自动调用init方法，所以，员工数量+1的语句需要写在init方法里面
+
+	def display_info(self):
+		'''展示员工基本信息方法'''
+		print('员工%s;年龄为%s,工作年限%d'%(self.name,self.age,self.years))
+
+	def displaycount(self):
+		'''统计员工人数'''
+		print("员工总数 %d" % Employee3.empCount)
+
+	def EmpRank(self):
+		'''评定员工等级'''
+		if self.years>10:
+			print ('P1')
+		elif self.years>5:
+			print  ('p2')
+		elif self.years>2:
+			print  ('p3')
+		else:
+			print  ('p4')
+
+'''第二步，创建三个实例化对象'''
+A=Employee3('zhangsan','26',3)
+B=Employee3('lisi','26',2)
+C=Employee3('lisi','26',8)
+
+
+'''
+调用类的属性和方法
+'''
+A.display_info(),A.EmpRank()    #调用类中的俩个方法，会打印员工的基本信息，和等级
+B.display_info(),B.EmpRank()
+C.display_info(),C.EmpRank()
+A.displaycount()                #打印统计员工总数的值，这里是3
+
+
+
+
+'''
+ 继承 ：代码的重用
+ class+类名+（继承的类名）：
+比如 class  Test(object):
+      默认为object类，这是所有类最终都会继承的类，所以我们上面新增的类，类名称后面没有写括号（）
+'''
+
+'''写一个父类，再写一个子类，去继承父类中间的方法'''
+
+class Parent():    #定义一个父类
+	parentattr=100
+	def __init__(self):
+		print('这是父类的init方法')
+	def parentmethon(self):
+		print('这是父类的普通方法')
+
+
+class Child(Parent):   #定义一个子类
+	def __init__(self):
+		print('这是子类的init方法')
+	def childmethon(self):
+		print('这是子类的方法')
+
+#实例化(子类)对象
+chi=Child()
+
+#子类去调用父类的方法
+chi.parentmethon()
 
 
 '''
