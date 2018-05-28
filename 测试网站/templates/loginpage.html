@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <style>
+        body {
+            background-color: #E6EFC2;
+
+    }
+        /*span {*/
+        /*background-color: red;*/
+    /*}*/
+
+    a:hover {
+        background-color: red;
+    }
+
+    a:hover span {
+        background-color: red;
+    }
+
+    </style>
+
+    <script>
+    function verify()
+    {
+        //var x=document.getElementsByClassName("username").value;
+	      var x=document.forms['myform']['username'].value;
+          var y=document.forms['myform']['username'].value;
+          // if(x==""&& y=="")
+	       //  {
+		   //      window.alert("请输入您的账号")
+	       //  }
+          // else if(isNaN(x))
+	       //  {
+          //       window.alert("请输入正确的手机号码")
+          //
+          //   }
+          if (isNaN(x)){
+              window.alert("请输入数字")
+          }
+
+
+          // else{
+          //     alter("1")
+          // }
+          // if(x==""){
+          //   alert("请输入用户名!");myform.username.focus();return;
+          //   }
+          // if(!checkeusername(x)){
+          //   alert("您输入的用户名不合法!");myform.username.focus();return;
+          //   }
+          // if(y==""){
+          //   alert("请输入密码!");myform.PWD.focus();return;
+          //   }
+          // if(!checkePWD(y)){
+          //   alert("您输入的密码不合法!");myform.PWD.focus();return;
+          //   }
+          //
+          //   myform.submit();
+
+
+    }
+</script>
+</head>
+
+<body>
+<h1 style="text-align: center">登录后开始练习自动化！</h1>
+{% if message %}
+<p style="color: red"> {{message}}</p>
+{% endif %}
+<form name='myform' onsubmit="return verify()"  action="/signin" method="post" style="text-align-all: center">
+<p>手机号码：<input  name="username" type='text' placeholder='请输入正确的手机号码' autocomplete="off"></p>
+<p>密&nbsp;&nbsp;&nbsp;&nbsp;码:<input  name="password" type="password" placeholder='密码' autocomplete="off"></p>
+<p><button type="submit" >Sign In</button></p>
+</form>
+<div>
+    <a href="https://github.com/jianhaohe/Python-Automation">练习一下鼠标移动</a>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+    <a href="http://sahitest.com/demo/dragDropMooTools.htm">练习鼠标拖拽</a>
+
+</div>
+<br>
+<br>
+<br>
+    <div style="border:solid 10px #FFD324;width:100px;height:100px;">start-with</div>
+    <br>
+    <div class='dcbe07da-9af1-44ae-bab0-1d2ea88dd775-success' style="width:70px;height:50px;border:solid 10px #8a1f11;align-content:center">contains</div>
+</body>
+</html>
+
+

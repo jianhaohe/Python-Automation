@@ -5,7 +5,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import xlwt,xlrd
 
-''' 还是先复习一下吧：
+
+
+
+'''
+请假的同学请先下载文件夹“测试网站”，因为网站有更新
+复习：
 面象对象编程：类（class）
 	a：将数据和逻辑封装起来，简化编程
 		__init__方法：
