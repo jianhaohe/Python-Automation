@@ -96,6 +96,9 @@ document:表示当前页面对象
 操作标签：   document.getElementsById(id)[0].click()
 更改属性：   document.getElementById('vip').style.visibility='visible'
 
+
+上面的js在我的测试网站上打开console控制台都可以去练习一遍，看到效果
+例如首页有个元素是默认隐藏的，通过document.getElementById('vip').style.visibility='visible'让它显示
 '''
 
 
