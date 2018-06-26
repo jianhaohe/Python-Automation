@@ -28,6 +28,26 @@ document.getElementsByTagname()[0].click
 document.getElementsByclassname().style.visibility='visible'
 
 
+
+'''javascript 获取元素的值，需要用return，和写一个def函数一样的道理，如果函数中没有return，获得的值为NONE'''
+
+driver=webdriver.Chrome()
+driver.get('http://127.0.0.1:5000/')
+js='return document.getElementById("vip").style.visibility'
+value=driver.execute_script(js)
+print(value)
+
+
+'''js非常强大，可以实现各种酷炫的效果；大家可以去学习一些基本的JS和html，对自动化测试非常有帮助
+	例如：用红色框框，高亮某个元素，
+	js语句用分号分开；
+	arguments[i]和元素一一对应'''
+hidden=driver.find_element_by_xpath("/html/body/input[1]")    #元素一
+visible=driver.find_element_by_xpath("/html/body/input[2]")   #元素二
+driver.execute_script('arguments[0].style.border="6px solid red";arguments[1].style.border="6px solid red"', visible,hidden)
+
+
+
 python发送邮件：导入：email  smtplib
 三个步骤：
 1、设置基本数据信息
@@ -113,22 +133,7 @@ if __name__=='__main__':
 
 
 
-'''javascript 获取元素的值，需要用return，和写一个def函数一样的道理，如果函数中没有return，获得的值为NONE'''
 
-driver=webdriver.Chrome()
-driver.get('http://127.0.0.1:5000/')
-js='return document.getElementById("vip").style.visibility'
-value=driver.execute_script(js)
-print(value)
-
-
-'''js非常强大，可以实现各种酷炫的效果；例如
-	用红色框框，高亮某个元素，
-	js语句用分号分开；
-	arguments[i]和元素一一对应'''
-hidden=driver.find_element_by_xpath("/html/body/input[1]")    #元素一
-visible=driver.find_element_by_xpath("/html/body/input[2]")   #元素二
-driver.execute_script('arguments[0].style.border="6px solid red";arguments[1].style.border="6px solid red"', visible,hidden)
 
 
 
@@ -285,3 +290,6 @@ what to do
 how  to do
 很重要的思想
 '''
+
+
+接下来会讲rf的if-else；for循环、自定义源文件；等robotframework你用多了之后，会感觉它非常方便，实用，强大
