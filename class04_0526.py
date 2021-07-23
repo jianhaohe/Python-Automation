@@ -161,13 +161,17 @@ driver.get("http://www.baidu.com")                         #这时候就会以iP
 
 '''
 2.基本操作：
-  刷新：refresh,
-  获取浏览器窗口大小:get_window_size 设置浏览器窗口大小:set_window_siez最大化:maximizewindow
-  获取浏览器窗口个数、切换到指定窗口:get_window_handle,switch_to.window()
-  前进：forward
-  后退：back
-  关闭：close
-  退出：quit
+  刷新页面：  driver.refresh
+  获取浏览器窗口大小:driver.get_window_size()
+  设置浏览器窗口大小:driver.set_window_size()
+  浏览器最大化窗口:driver.maximize_window()
+  浏览器全屏：driver.fullscreen_window()
+  获取浏览器窗口个数：driver.get_window_handle,返回的是一个列表
+  切换到指定窗口: driver.switch_to.window()
+  前进：driver.forward()
+  后退：driver.back()
+  关闭：driver.close() 关闭当前窗口
+  退出：driver.quit()  完全退出浏览器
 '''
 
 driver=webdriver.Chrome()
